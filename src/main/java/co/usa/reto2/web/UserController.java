@@ -28,37 +28,70 @@ import co.usa.reto2.service.UserService;
 public class UserController {
 
     @Autowired
+    /**
+     * 
+     */
     private UserService userService;
 
     @GetMapping("/all")
+    /**
+     * 
+     * @return
+     */
     public List<User> getAll() {
         return userService.getAll();
     }
 
     @PostMapping("/new")
     @ResponseStatus(HttpStatus.CREATED)
+    /**
+     * 
+     * @param user
+     * @return
+     */
     public User create(@RequestBody User user) {
         return userService.create(user);
     }
 
     @PutMapping("/update")
     @ResponseStatus(HttpStatus.CREATED)
+    /**
+     * 
+     * @param user
+     * @return
+     */
     public User update(@RequestBody User user) {
         return userService.update(user);
     }
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") String id) {
-        return userService.delete(id);
+    /**
+     * 
+     * @param idUser
+     * @return
+     */
+    public boolean delete(@PathVariable("id") int idUser) {
+        return userService.delete(idUser);
     }
 
     @GetMapping("/{email}/{password}")
+    /**
+     * 
+     * @param email
+     * @param password
+     * @return
+     */
     public User authenticateUser(@PathVariable("email") String email, @PathVariable("password") String password) {
         return userService.authenticateUser(email, password);
     }
 
     @GetMapping("/emailexist/{email}")
+    /**
+     * 
+     * @param email
+     * @return
+     */
     public boolean emailExists(@PathVariable("email") String email) {
         return userService.emailExists(email);
     }

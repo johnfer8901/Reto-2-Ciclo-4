@@ -21,7 +21,7 @@ public class ProductsRepository {
         return productsCrudRepository.findAll();
     }
 
-    public Optional<Products> getProducts(String id) {
+    public Optional<Products> getProducts(int id) {
         return productsCrudRepository.findById(id);
     }
     public Products create(Products producto) {

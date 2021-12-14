@@ -21,7 +21,7 @@ public class UserService {
         return userRepository.getAll();
     }
 
-    public Optional<User> getUser(String id) {
+    public Optional<User> getUser(int id) {
         
         return userRepository.getUser(id);
     }
@@ -80,7 +80,7 @@ public class UserService {
         }
     }
     
-    public boolean delete(String userId) {
+    public boolean delete(int userId) {
         Boolean aBoolean = getUser(userId).map(user -> {
             userRepository.delete(user);
             return true;

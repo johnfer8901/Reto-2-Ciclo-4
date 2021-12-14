@@ -22,7 +22,7 @@ public class ProductsService {
         return productsRepository.getAll();
     }
 
-    public Optional<Products> getProducts(String id) {
+    public Optional<Products> getProducts(int id) {
         return productsRepository.getProducts(id);
     }
 
@@ -76,7 +76,7 @@ public class ProductsService {
     }
 
 
-    public boolean delete(String id) {
+    public boolean delete(int id) {
         Boolean aBoolean = getProducts(id).map(producto -> {
             productsRepository.delete(producto);
             return true;

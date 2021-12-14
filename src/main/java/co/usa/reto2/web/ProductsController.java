@@ -36,7 +36,7 @@ public class ProductsController {
     }
     
     @GetMapping("/{id}")
-    public Optional<Products> getProducts(@PathVariable("id") String id) {
+    public Optional<Products> getProducts(@PathVariable("id") int id) {
         return productsService.getProducts(id);
     }
 
@@ -54,7 +54,7 @@ public class ProductsController {
 
     @DeleteMapping("/{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public boolean delete(@PathVariable("id") String id) {
+    public boolean delete(@PathVariable("id") int id) {
         return productsService.delete(id);
     } 
 
